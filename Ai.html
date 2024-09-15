@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish Website</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ff6584;
+        }
+
+        input {
+            padding: 12px;
+            margin: 10px 0;
+            width: 100%;
+            border: 2px solid #ff6584;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #ff9a9e;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #ff6584;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e0446d;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+            padding: 15px;
+            background-color: #ffecf0;
+            border-radius: 10px;
+        }
+
+        .message span {
+            color: #ff6584;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Birthday Wish 🎉</h1>
+    
+    <!-- Default birthday message displayed initially -->
+    <div class="message" id="message">
+        Happy Birthday, <span>John</span>! 🎉🎂🎁<br>
+        Wishing you a wonderful day filled with joy.<br>
+        Best wishes from <span>Alice</span>!
+    </div>
+
+    <!-- Inputs to change the names -->
+    <input type="text" id="birthdayPerson" placeholder="Enter the birthday person's name" value="John">
+    <input type="text" id="wisher" placeholder="Enter your name (wisher)" value="Narendra Sai">
+    
+    <!-- Button to regenerate the message -->
+    <button onclick="generateWish()">Update Birthday Wish</button>
+</div>
+
+<script>
+    // Function to update the birthday message based on input
+    function generateWish() {
+        const birthdayPerson = document.getElementById('birthdayPerson').value;
+        const wisher = document.getElementById('wisher').value;
+
+        // Update the message with new names or default if none provided
+        const message = `Happy Birthday, <span>${birthdayPerson || 'John'}</span>! 🎉🎂🎁<br>
+                        Wishing you a wonderful day filled with joy.<br>
+                        Best wishes from <span>${wisher || 'Alice'}</span>!`;
+        document.getElementById('message').innerHTML = message;
+    }
+
+    // Automatically display default message on load
+    window.onload = function() {
+        generateWish();  // Ensure the default message shows up on page load
+    };
+</script>
+
+</body>
+</html>
